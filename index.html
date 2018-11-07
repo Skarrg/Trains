@@ -8,11 +8,12 @@
     <title>Train Scheduler</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.22.2/moment.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js"></script>
+
 </head>
 
 <body>
@@ -32,7 +33,7 @@
                                 <tr>
                                     <th scope="col">Origin</th>
                                     <th scope="col">Train Number</th>
-                                    <th scope="col">Arrival Time</th>
+                                    <th scope="col">Next Arrival Time</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,9 +53,9 @@
                         <table class="table table-sm table-hover" id='outgoing-table'>
                             <thead>
                                 <tr>
-                                    <th scope="col">Origin</th>
+                                    <th scope="col">Destination</th>
                                     <th scope="col">Train Number</th>
-                                    <th scope="col">Arrival Time</th>
+                                    <th scope="col">Time until next departure</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,7 +72,7 @@
                 <div class="card mb-4">
                     <div class="card-header">ADD TRAINS - (SANTA ONLY!!!!!!)</div>
                     <div class="card-body">
-                        <form>
+                        <form method="POST">
                             <div class="form-group">
                                 <label for="train-name-input">Train Number</label>
                                 <input class="form-control" id="train-name-input" placeholder="Train Number Here" type="text">
@@ -101,6 +102,12 @@
                                     type="text">
                             </div>
 
+                            <div class="form-group">
+                                <label for="train-length-input">Train Travel Time</label>
+                                <input class="form-control" id="train-length-input" placeholder="Train Travel Time Here"
+                                    type="text">
+                            </div>
+
                             <button class="btn btn-primary float-right" id="add-train-btn">Submit</button>
                         </form>
                     </div>
@@ -108,6 +115,7 @@
             </div>
         </div>
     </div>
+    <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>
