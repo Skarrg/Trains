@@ -74,7 +74,7 @@ database.ref().on("child_added", function (childSnapshot) {
     var trainLengthConverted = moment(trainLengthTime, "HH:mm");
     console.log("trainlength: " + trainLengthConverted);
 
-    var trainArrivalTime = startTimeConverted + trainLengthConverted;
+    var trainArrivalTime = moment(trainStartTime, "HH:mm").add(trainLengthConverted);//departure time + length
     console.log ("train arrival time: " + trainArrivalTime);
 
     var currentTime = moment();
@@ -97,7 +97,7 @@ database.ref().on("child_added", function (childSnapshot) {
         var newRow = $("<tr>").append(
             $("<td>").text(trainOriginResult),
             $("<td>").text(trainNumberResult),
-            // $("<td>").text(nextTrainArrival),
+            $("<td>").text(trainArrivalTime),
           );
         $("#incoming-table > tbody").append(newRow);
       };
