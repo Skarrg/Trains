@@ -1,2 +1,2 @@
 # Train Scheduler
-Homework! Add trains to/from the north pole to have them automatically scheduled.
+Homework! Trains will only be displayed if either origin or destination is set to 'North Pole'. Santa doesn't need to track anyone.
